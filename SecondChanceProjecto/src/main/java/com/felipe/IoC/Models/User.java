@@ -29,6 +29,8 @@ public class User {
     @Size(min = 8, max = 100)
     private String password;
 
+    private String city;
+
     @Transient
     private String passwordConfirm;
 
@@ -41,4 +43,6 @@ public class User {
 
     public User() {
     }
+
+
 }
