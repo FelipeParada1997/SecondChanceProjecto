@@ -21,7 +21,7 @@ public class User extends Base{
     private String apellido;
 
     @PastOrPresent
-    private Integrer fecha_nacimiento;
+    private Integer fecha_nacimiento;
 
     @NotBlank
     private String tipo_usuario;
