@@ -10,15 +10,23 @@ import java.util.Date;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends Base{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @NotNull
     @Size(min = 2, max = 40 )
     private String nombre;
+
+    @NotBlank
+    @Size
+    private String apellido;
+
+
+    private Integrer fecha_nacimiento;
+
 
     @NotNull
     @Size(min = 2,max = 150)
@@ -28,8 +36,6 @@ public class User {
     @NotNull
     @Size(min = 8, max = 100)
     private String password;
-
-    private String city;
 
     @Transient
     private String passwordConfirm;
