@@ -32,7 +32,5 @@ public abstract class Base {
     @PreUpdate
     protected void onUpdate() {
         updatedAt = new Date();
-
-
     }
 }
