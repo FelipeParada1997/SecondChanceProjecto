@@ -18,15 +18,13 @@ public class User extends Base{
     @Size(min = 2, max = 40 )
     private String nombre;
 
-    @NotBlank
+    @NotNull
     @Size(min = 1, max = 6)
     private String apellido;
 
     @PastOrPresent
     private Integer fecha_nacimiento;
 
-    @NotBlank
-    private String tipo_usuario;
 
     @NotNull
     @Size(min = 2,max = 150)
@@ -43,4 +41,12 @@ public class User extends Base{
     public User() {
     }
 
+    public User(String nombre, String apellido, Integer fecha_nacimiento, String email, String password, String passwordConfirm) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.email = email;
+        this.password = password;
+        this.passwordConfirm = passwordConfirm;
+    }
 }

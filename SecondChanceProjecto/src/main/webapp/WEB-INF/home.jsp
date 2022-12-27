@@ -27,6 +27,11 @@
             <form:input  class="form-control" type="text" path="nombre"/>
         </p>
         <p>
+            <form:label class="form-label" path="apellido">Apellido:</form:label>
+            <form:errors path="apellido"/>
+            <form:input  class="form-control" type="text" path="apellido"/>
+        </p>
+        <p>
             <form:label class="form-label" path="email">Email:</form:label>
             <form:errors path="email"/>
             <form:input  class="form-control" type="email" path="email"/>
