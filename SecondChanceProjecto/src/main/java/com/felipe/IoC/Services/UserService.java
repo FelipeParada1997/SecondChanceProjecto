@@ -31,7 +31,7 @@ public class UserService extends BaseService{
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
-    
+
     //----------------------------------- Registro y Login------------------------------------------
 
     public User createUser(User u) {
