@@ -9,7 +9,6 @@ public class BaseService<T> {
     private final BaseRepository<T> baseRepository;
 
     public BaseService(BaseRepository<T> baseRepository) {
-        super();
         this.baseRepository = baseRepository;
     }
 
