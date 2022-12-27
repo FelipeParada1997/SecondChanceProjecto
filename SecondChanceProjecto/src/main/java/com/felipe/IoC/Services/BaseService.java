@@ -12,7 +12,7 @@ public class BaseService<T> {
         this.baseRepository = baseRepository;
     }
 
-    public T buscarId(Long id){
+    public T findById(Long id){
         Optional<T> optional = baseRepository.findById(id);
         if(optional.isPresent()) {
             return optional.get();
@@ -25,11 +25,11 @@ public class BaseService<T> {
         return baseRepository.findAll();
     }
 
-    public void guardarTodos(List<T> objeto) {
+    public void saveAll(List<T> objeto) {
         baseRepository.saveAll(objeto);
     }
 
-    public T guardar (T objeto) {
+    public T save (T objeto) {
         try {
             return baseRepository.save(objeto);
         } catch (Exception e) {
@@ -38,8 +38,8 @@ public class BaseService<T> {
         return null;
     }
 
-    public boolean eliminar(Long id) {
-        T objeto = buscarId(id);
+    public boolean destroy(Long id) {
+        T objeto = findById(id);
         if(objeto != null) {
             baseRepository.delete(objeto);
             return true;
