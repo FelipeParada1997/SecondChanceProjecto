@@ -3,6 +3,7 @@ package com.felipe.IoC.Services;
 import com.felipe.IoC.Models.User;
 import com.felipe.IoC.Repositories.BaseRepository;
 import com.felipe.IoC.Repositories.UserRepository;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 @Service
