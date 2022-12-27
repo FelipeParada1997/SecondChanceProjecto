@@ -4,7 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -15,7 +15,7 @@ public class User extends Base{
     private String nombre;
 
     @NotBlank
-    @Size
+    @Size(min = 1, max = 6)
     private String apellido;
 
     @PastOrPresent
