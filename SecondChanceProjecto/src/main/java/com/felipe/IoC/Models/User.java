@@ -3,9 +3,7 @@ package com.felipe.IoC.Models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
@@ -17,7 +15,7 @@ public class User extends Base{
     private String nombre;
 
     @NotBlank
-    @Size
+    @Size(min = 1, max = 6)
     private String apellido;
 
     @PastOrPresent
@@ -57,11 +55,11 @@ public class User extends Base{
         this.apellido = apellido;
     }
 
-    public Integrer getFecha_nacimiento() {
+    public Integer getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(Integrer fecha_nacimiento) {
+    public void setFecha_nacimiento(Integer fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
