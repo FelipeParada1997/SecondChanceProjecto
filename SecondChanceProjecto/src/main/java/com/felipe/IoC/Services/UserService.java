@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserService extends BaseService{
+public class UserService extends BaseService<User>{
     private final UserRepository userRepository;
 
-    public UserService(BaseRepository baseRepository, UserRepository userRepository) {
-        super(baseRepository);
+    public UserService(UserRepository userRepository) {
+        super(userRepository);
         this.userRepository = userRepository;
 
     }
