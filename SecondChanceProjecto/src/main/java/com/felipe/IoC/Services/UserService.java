@@ -1,24 +1,22 @@
 package com.felipe.IoC.Services;
 
-import com.felipe.IoC.Models.User;
-import com.felipe.IoC.Repositories.BaseRepository;
-import com.felipe.IoC.Repositories.UserRepository;
+import java.util.Optional;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import com.felipe.IoC.Models.User;
+import com.felipe.IoC.Repositories.UserRepository;
 
 @Service
-public class UserService extends BaseService{
+public class UserService extends BaseService<User>{
     private final UserRepository userRepository;
 
-    public UserService(BaseRepository baseRepository, UserRepository userRepository) {
-        super(baseRepository);
+    public UserService(UserRepository userRepository){
+        super(userRepository);
         this.userRepository = userRepository;
-
     }
     //-----------------------------------  -------------------------------
-
     public User findUserById(Long id) {
         Optional<User> u = userRepository.findById(id);
         if(u.isPresent()) {

@@ -14,8 +14,8 @@ public abstract class Base {
     public Base() {
     }
     @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @Column(name = "created_at", updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
