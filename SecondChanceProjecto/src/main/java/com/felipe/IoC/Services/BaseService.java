@@ -1,15 +1,20 @@
 package com.felipe.IoC.Services;
 
-public class BaseService<T> {
-    private final RepositorioBase<T> repositorioBase;
+import com.felipe.IoC.Repositories.BaseRepository;
 
-    public ServicioBase(RepositorioBase<T> repositorioBase) {
+import java.util.List;
+import java.util.Optional;
+
+public class BaseService<T> {
+    private final BaseRepository<T> baseRepository;
+
+    public BaseService(BaseRepository<T> baseRepository) {
         super();
-        this.repositorioBase = repositorioBase;
+        this.baseRepository = baseRepository;
     }
 
     public T buscarId(Long id){
-        Optional<T> optional = repositorioBase.findById(id);
+        Optional<T> optional = baseRepository.findById(id);
         if(optional.isPresent()) {
             return optional.get();
         } else {
@@ -18,16 +23,16 @@ public class BaseService<T> {
     }
 
     public List<T> listado(){
-        return repositorioBase.findAll();
+        return baseRepository.findAll();
     }
 
     public void guardarTodos(List<T> objeto) {
-        repositorioBase.saveAll(objeto);
+        baseRepository.saveAll(objeto);
     }
 
     public T guardar (T objeto) {
         try {
-            return repositorioBase.save(objeto);
+            return baseRepository.save(objeto);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -37,7 +42,7 @@ public class BaseService<T> {
     public boolean eliminar(Long id) {
         T objeto = buscarId(id);
         if(objeto != null) {
-            repositorioBase.delete(objeto);
+            baseRepository.delete(objeto);
             return true;
         }
         return false;
