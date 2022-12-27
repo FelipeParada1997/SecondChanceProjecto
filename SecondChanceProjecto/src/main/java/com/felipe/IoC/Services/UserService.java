@@ -6,6 +6,8 @@ import com.felipe.IoC.Repositories.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService extends BaseService{
     private final UserRepository userRepository;
@@ -15,6 +17,21 @@ public class UserService extends BaseService{
         this.userRepository = userRepository;
 
     }
+    //-----------------------------------  -------------------------------
+
+    public User findUserById(Long id) {
+        Optional<User> u = userRepository.findById(id);
+        if(u.isPresent()) {
+            return u.get();
+        } else {
+            return null;
+        }
+    }
+
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+    
     //----------------------------------- Registro y Login------------------------------------------
 
     public User createUser(User u) {
