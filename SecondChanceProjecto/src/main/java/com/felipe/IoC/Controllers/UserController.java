@@ -69,7 +69,7 @@ public class UserController {
         if((Long) session.getAttribute("userId") == null) {
             return "redirect:/";
         }else {
-            List<Publicacion> publicaciones = publicacionService.todaMesasPersonas();
+            List<Publicacion> publicaciones = publicacionService.mostrarPublicacions();
             model.addAttribute("listpulicacion", publicaciones);
             model.addAttribute("user", userService.findUserById((Long)session.getAttribute("userId")));
             return "/user/home.jsp";
