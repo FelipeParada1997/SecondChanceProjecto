@@ -1,8 +1,9 @@
 package com.felipe.IoC.Repositories;
-import org.springframework.data.repository.CrudRepository;
+
+import org.springframework.stereotype.Repository;
 
 import com.felipe.IoC.Models.Publicacion;
 
-public interface PublicacionRepository extends CrudRepository<Publicacion, Long>{
-    
+@Repository
+public interface PublicacionRepository extends BaseRepository<Publicacion>{
 }

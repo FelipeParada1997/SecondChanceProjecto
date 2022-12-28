@@ -1,7 +1,6 @@
 package com.felipe.IoC.Repositories;
 
 import com.felipe.IoC.Models.User;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 
