@@ -1,6 +1,8 @@
 package com.felipe.IoC.Controllers;
 
+import com.felipe.IoC.Models.Publicacion;
 import com.felipe.IoC.Models.User;
+import com.felipe.IoC.Services.PublicacionService;
 import com.felipe.IoC.Services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,33 +11,36 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class UserController {
     private final UserService userService;
+    private final PublicacionService publicacionService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PublicacionService publicacionService) {
         this.userService = userService;
+        this.publicacionService = publicacionService;
     }
 
 
-    //---------------------------------------------Home--------------------------------------------------
+    //---------------------------------------------register login--------------------------------------------------
 
     @RequestMapping(value = "/", method= RequestMethod.GET)
     public String index(Model model, HttpSession session,
                         @ModelAttribute("user") User user) {
-        return "/user/home.jsp";
+        return "/user/index.jsp";
     }
 
     @PostMapping(value="/registerpost")
     public String indexregister(@Valid @ModelAttribute("user") User user,
                                 BindingResult result, HttpSession session, Model model) {
         if (result.hasErrors()) {
-            return "/user/home.jsp";
+            return "/user/index.jsp";
         }
         if(!user.getPassword().equals(user.getPasswordConfirm())) {
             model.addAttribute("Error", "Las contraseñas no son iguales");
-            return "/user/home.jsp";
+            return "/user/index.jsp";
         }
         User u = userService.registerUser(user);
         session.setAttribute("userId", u.getId());
@@ -53,6 +58,20 @@ public class UserController {
             return "redirect:/home";
         } else {
             model.addAttribute("error","Please try again");
+            return "/user/index.jsp";
+        }
+    }
+
+    //---------------------------------------------Home--------------------------------------------------
+
+    @RequestMapping (value = "/home")
+    public String home(Model model,HttpSession session) {
+        if((Long) session.getAttribute("userId") == null) {
+            return "redirect:/";
+        }else {
+            List<Publicacion> publicaciones = publicacionService.todaMesasPersonas();
+            model.addAttribute("listpulicacion", publicaciones);
+            model.addAttribute("user", userService.findUserById((Long)session.getAttribute("userId")));
             return "/user/home.jsp";
         }
     }
