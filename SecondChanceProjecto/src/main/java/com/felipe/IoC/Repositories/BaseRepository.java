@@ -1,11 +1,11 @@
 package com.felipe.IoC.Repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.List;
 
-@Repository
+@NoRepositoryBean
 public interface BaseRepository<T> extends CrudRepository <T, Long> {
     List<T> findAll();
 }
