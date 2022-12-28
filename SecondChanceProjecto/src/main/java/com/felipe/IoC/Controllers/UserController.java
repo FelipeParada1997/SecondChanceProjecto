@@ -17,6 +17,8 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
+
     //---------------------------------------------Home--------------------------------------------------
 
     @RequestMapping(value = "/", method= RequestMethod.GET)
@@ -54,4 +56,6 @@ public class UserController {
             return "/user/home.jsp";
         }
     }
+
+
 }
