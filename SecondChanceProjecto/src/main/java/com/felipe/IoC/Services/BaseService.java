@@ -5,7 +5,10 @@ import com.felipe.IoC.Repositories.BaseRepository;
 import java.util.List;
 import java.util.Optional;
 
-public class BaseService<T> {
+import org.springframework.stereotype.Service;
+
+@Service
+public abstract class BaseService<T> {
     private final BaseRepository<T> baseRepository;
 
     public BaseService(BaseRepository<T> baseRepository) {
