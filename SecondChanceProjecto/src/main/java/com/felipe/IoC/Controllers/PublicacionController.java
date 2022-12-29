@@ -56,8 +56,8 @@ public class PublicacionController {
     }
     //para borrar la publicacion
     @GetMapping("/SecondChance/Publicacion/{id}/delete")
-    public String destroyPublic(@PathVariable("id")Long id){
-        publicacionService.destroy(id);
+    public String deletePublic(@PathVariable("id")Long id){
+        publicacionService.delete(id);
         return "redirect:/SecondChance";
     }
 }
