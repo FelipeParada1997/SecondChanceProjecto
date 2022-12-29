@@ -20,7 +20,7 @@ public class Publicacion extends Base{
 
     @NotBlank
     @Size(message = "tu publicacion necesita un titulo")
-    private String Titulo;
+    private String titulo;
 
     @NotBlank
     @Size(message = "falta agregar una descripcion")
@@ -33,5 +33,11 @@ public class Publicacion extends Base{
     public Publicacion(){
     }
 
+    public Publicacion(String titulo,String descripcion, User user) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.user = user;
+    }
+    
     
 }
