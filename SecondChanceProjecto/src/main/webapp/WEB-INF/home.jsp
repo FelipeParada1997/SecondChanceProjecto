@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold">All Students</a>
+            <a class="navbar-brand fw-bold">SecondChance</a>
             <a href="/login">Ingresar</a>
             <a href="/registro">Registrarse</a>
         </div>
