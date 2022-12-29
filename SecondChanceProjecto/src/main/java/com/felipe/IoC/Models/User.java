@@ -1,5 +1,6 @@
 package com.felipe.IoC.Models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -9,7 +10,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
@@ -26,15 +26,14 @@ public class User extends Base{
     @Size(min = 2, max = 40 )
     private String nombre;
 
+
     @NotBlank
-    @Size(min = 1, max = 6)
+    @Size(min = 5)
     private String apellido;
 
     @PastOrPresent
-    private Integer fecha_nacimiento;
+    private Date fecha_nacimiento;
 
-
-    @NotNull
     @Email(message = "error de formato")
     private String email;
 
@@ -52,7 +51,7 @@ public class User extends Base{
     private List<Publicacion> publicaciones;
 
 
-    public User(String nombre, String apellido, Integer fecha_nacimiento, String email, String password, String passwordConfirm) {
+    public User(String nombre, String apellido, Date fecha_nacimiento, String email, String password, String passwordConfirm) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fecha_nacimiento = fecha_nacimiento;
