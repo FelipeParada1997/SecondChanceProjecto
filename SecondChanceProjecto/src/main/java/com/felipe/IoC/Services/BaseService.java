@@ -1,20 +1,22 @@
 package com.felipe.IoC.Services;
 
-import com.felipe.IoC.Repositories.BaseRepository;
-import com.felipe.IoC.Repositories.PublicacionRepository;
-
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.felipe.IoC.Repositories.BaseRepository;
+
+import lombok.RequiredArgsConstructor;
+
+
+
 @Service
+@RequiredArgsConstructor
 public abstract class BaseService<T> implements IService<T>{
     private final BaseRepository<T> baseRepository;
 
-    public BaseService(PublicacionRepository baseRepository) {
-        this.baseRepository = baseRepository;
-    }
+
 //-----------------------------------------------------------------------------------------------
     @Override
     public void delete(Long id) {
