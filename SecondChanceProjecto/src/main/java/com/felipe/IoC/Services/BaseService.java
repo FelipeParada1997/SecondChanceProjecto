@@ -8,40 +8,45 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
-public abstract class BaseService<T> implements IService<T>{
+public abstract class BaseService<T> {
     private final BaseRepository<T> baseRepository;
 
     public BaseService(BaseRepository<T> baseRepository) {
         this.baseRepository = baseRepository;
     }
 //-----------------------------------------------------------------------------------------------
-    @Override
-    public void delete(Long id) {
-        T entity = findById(id);
-        if(entity != null){
-            baseRepository.delete(entity);
+    public T findById(Long id){
+        Optional<T> optional = baseRepository.findById(id);
+        if(optional.isPresent()) {
+            return optional.get();
+        } else {
+            return null;
         }
     }
 
-    @Override
-    public List<T> findAll() {
-    return baseRepository.findAll();
+    public List<T> listado(){
+        return baseRepository.findAll();
     }
 
-    @Override
-    public T findById(Long id) {
-        Optional<T> op = baseRepository.findById(id);
-        return op.isPresent() ? op.get() : null;
+    public void saveAll(List<T> objeto) {
+        baseRepository.saveAll(objeto);
     }
 
-    @Override
-    public T save(T entity) {
-        return baseRepository.save(entity);
+    public T save (T objeto) {
+        try {
+            return baseRepository.save(objeto);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
-    @Override
-    public T update(T entity) {
-        return baseRepository.save(entity);
+    public boolean destroy(Long id) {
+        T objeto = findById(id);
+        if(objeto != null) {
+            baseRepository.delete(objeto);
+            return true;
+        }
+        return false;
     }
-
 }
