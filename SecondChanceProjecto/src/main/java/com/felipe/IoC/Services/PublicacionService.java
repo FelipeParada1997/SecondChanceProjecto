@@ -1,5 +1,7 @@
 package com.felipe.IoC.Services;
 
+import java.util.List;
+
 import com.felipe.IoC.Models.Publicacion;
 import com.felipe.IoC.Repositories.PublicacionRepository;
 
@@ -11,5 +13,10 @@ public class PublicacionService extends BaseService<Publicacion>{
         super(publicacionRepository);
         this.publicacionRepository = publicacionRepository;
     }
+
+    public List<Publicacion>todaMesasPersonas(){
+        return publicacionRepository.findAll();
+    }
+
     
 }
