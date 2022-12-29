@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Login</h1>
-    <p><c:out value="${logError}"/>Error en inicio de sesion,por favor reintente</p>
+    <p><c:out value="${error}"/></p>
     <form method="post" action="/loginpost">
         <p>
             <label class="form-label" for="email">Email</label>

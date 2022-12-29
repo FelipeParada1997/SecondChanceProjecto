@@ -24,12 +24,12 @@
         <p>
             <form:label class="form-label" path="nombre">Nombre:</form:label>
             <form:errors path="nombre"/>
-            <form:input  class="form-control" type="text" path="nombre"/>
+            <form:input  class="form-control"  path="nombre"/>
         </p>
         <p>
             <form:label class="form-label" path="apellido">Apellido:</form:label>
             <form:errors path="apellido"/>
-            <form:input  class="form-control" type="text" path="apellido"/>
+            <form:input  class="form-control" path="apellido"/>
         </p>
         <p>
             <form:label class="form-label" path="email">Email:</form:label>
@@ -44,9 +44,9 @@
             <form:label class="form-label" path="passwordConfirm">Password Confirmation:</form:label>
             <form:password class="form-control"  path="passwordConfirm"/>
         </p>
-        <input type="submit" value="Register!"/>
+        <input type="submit" value="Registro"/>
     </form:form>
-    
+
 </div>
 </body>
 </html>
