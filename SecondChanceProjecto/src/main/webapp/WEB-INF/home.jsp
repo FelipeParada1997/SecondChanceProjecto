@@ -22,10 +22,6 @@
         </div>
     </nav>
 
-    
-            
-
-
             <div class="contenedor publicaciones">
                 <div class="contieneForeach">
                     <%-- <c:forEach var="" items="${}"> --%>
