@@ -14,7 +14,7 @@
 <body>
     <h1>Login</h1>
     <p><c:out value="${error}"/></p>
-    <form method="post" action="/loginpost">
+    <form method="post" action="/login">
         <p>
             <label class="form-label" for="email">Email</label>
             <input  class="form-control" type="text" id="email" name="email"/>

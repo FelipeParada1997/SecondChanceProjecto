@@ -57,7 +57,7 @@ public class UserController {
             session.setAttribute("userId", u.getId());
             return "redirect:/home";
         } else {
-            model.addAttribute("error","Please try again");
+            model.addAttribute("error","porfavor intente otra vez");
             return "login";
         }
     }
@@ -68,18 +68,6 @@ public class UserController {
     }
 
     //---------------------------------------------Home--------------------------------------------------
-
-// @GetMapping("/home")
-//     public String home(Model model,HttpSession session) {
-//         if((Long) session.getAttribute("userId") == null) {
-//             return "redirect:/";
-//         }else {
-//             List<Publicacion> publicaciones = publicacionService.mostrarPublicacions();
-//             model.addAttribute("listpulicacion", publicaciones);
-//             model.addAttribute("user", userService.findUserById((Long)session.getAttribute("userId")));
-//             return "home";
-//         }
-//     }
 
 //para ver publicaciones en el home en general
     @GetMapping("home")
