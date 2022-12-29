@@ -14,7 +14,7 @@ public class PublicacionService extends BaseService<Publicacion>{
         this.publicacionRepository = publicacionRepository;
     }
 
-    public List<Publicacion>todaMesasPersonas(){
+    public List<Publicacion>mostrarPublicacions(){
         return publicacionRepository.findAll();
     }
 
