@@ -1,13 +1,20 @@
 package com.felipe.IoC.Models;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -15,25 +22,23 @@ import java.util.List;
 @Table(name = "users")
 public class User extends Base{
 
-    @NotNull
+    @NotBlank
     @Size(min = 2, max = 40 )
     private String nombre;
 
-    @NotNull
-    @Size(min = 1, max = 6)
+
+    @NotBlank
+    @Size(min = 5)
     private String apellido;
 
     @PastOrPresent
-    private Integer fecha_nacimiento;
+    private Date fecha_nacimiento;
 
-
-    @NotNull
-    @Size(min = 2,max = 150)
     @Email(message = "error de formato")
     private String email;
 
-    @NotNull
-    @Size(min = 8, max = 100)
+    @NotBlank
+    @Size(min = 7)
     private String password;
 
     @Transient
@@ -46,7 +51,7 @@ public class User extends Base{
     private List<Publicacion> publicaciones;
 
 
-    public User(String nombre, String apellido, Integer fecha_nacimiento, String email, String password, String passwordConfirm) {
+    public User(String nombre, String apellido, Date fecha_nacimiento, String email, String password, String passwordConfirm) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fecha_nacimiento = fecha_nacimiento;
