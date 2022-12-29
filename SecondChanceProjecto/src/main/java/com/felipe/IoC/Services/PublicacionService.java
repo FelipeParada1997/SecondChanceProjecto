@@ -13,10 +13,11 @@ public class PublicacionService extends BaseService<Publicacion>{
         super(publicacionRepository);
         this.publicacionRepository = publicacionRepository;
     }
-
     public List<Publicacion>mostrarPublicacions(){
         return publicacionRepository.findAll();
     }
-
+    public Publicacion savePublicacion(Publicacion publicacion){
+        return publicacionRepository.save(publicacion);
+    }
     
 }
