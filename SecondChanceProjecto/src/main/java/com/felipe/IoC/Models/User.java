@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -40,6 +41,10 @@ public class User extends Base{
 
     public User() {
     }
+
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Publicacion> publicaciones;
+
 
     public User(String nombre, String apellido, Integer fecha_nacimiento, String email, String password, String passwordConfirm) {
         this.nombre = nombre;
