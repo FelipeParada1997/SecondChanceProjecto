@@ -1,13 +1,20 @@
 package com.felipe.IoC.Models;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
+
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,11 +22,11 @@ import java.util.List;
 @Table(name = "users")
 public class User extends Base{
 
-    @NotNull
+    @NotBlank
     @Size(min = 2, max = 40 )
     private String nombre;
 
-    @NotNull
+    @NotBlank
     @Size(min = 1, max = 6)
     private String apellido;
 
@@ -28,12 +35,11 @@ public class User extends Base{
 
 
     @NotNull
-    @Size(min = 2,max = 150)
     @Email(message = "error de formato")
     private String email;
 
-    @NotNull
-    @Size(min = 8, max = 100)
+    @NotBlank
+    @Size(min = 7)
     private String password;
 
     @Transient
