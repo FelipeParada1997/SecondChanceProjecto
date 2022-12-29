@@ -12,6 +12,8 @@ public class PublicacionController {
     private final UserService userService;
 
     public PublicacionController(PublicacionService publicacionService,UserService userService){
-        this.
+
+        this.publicacionService = publicacionService;
+        this.userService = userService;
     }
 }
