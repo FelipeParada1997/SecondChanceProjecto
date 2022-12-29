@@ -8,11 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
-<<<<<<< Updated upstream
 public abstract class BaseService<T> implements IService<T>{
-=======
-public class BaseService<T> {
->>>>>>> Stashed changes
     private final BaseRepository<T> baseRepository;
 
     public BaseService(BaseRepository<T> baseRepository) {

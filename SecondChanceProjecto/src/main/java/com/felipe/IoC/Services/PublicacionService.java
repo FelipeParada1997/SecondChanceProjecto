@@ -1,12 +1,9 @@
 package com.felipe.IoC.Services;
 
-<<<<<<< Updated upstream
-=======
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
->>>>>>> Stashed changes
 import com.felipe.IoC.Models.Publicacion;
 import com.felipe.IoC.Repositories.PublicacionRepository;
 
