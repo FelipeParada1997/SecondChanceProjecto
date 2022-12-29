@@ -45,11 +45,12 @@ public class User extends Base{
     @Transient
     private String passwordConfirm;
 
+    public User() {
+    }
+
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Publicacion> publicaciones;
 
-    public User() {
-    }
 
     public User(String nombre, String apellido, Integer fecha_nacimiento, String email, String password, String passwordConfirm) {
         this.nombre = nombre;
