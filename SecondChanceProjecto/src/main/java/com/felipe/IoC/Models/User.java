@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
@@ -27,15 +26,14 @@ public class User extends Base{
     @Size(min = 2, max = 40 )
     private String nombre;
 
+
     @NotBlank
-    @Size(min = 1, max = 6)
+    @Size(min = 5)
     private String apellido;
 
     @PastOrPresent
     private Date fecha_nacimiento;
 
-
-    @NotNull
     @Email(message = "error de formato")
     private String email;
 

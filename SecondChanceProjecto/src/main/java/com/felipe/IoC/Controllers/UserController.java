@@ -1,5 +1,7 @@
 package com.felipe.IoC.Controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.felipe.IoC.Models.Publicacion;
 import com.felipe.IoC.Models.User;
 import com.felipe.IoC.Services.PublicacionService;
 import com.felipe.IoC.Services.UserService;
@@ -34,18 +37,13 @@ public class UserController {
         if (result.hasErrors()) {
             return "registro";
         }
-        // if(!user.getPassword().equals(user.getPasswordConfirm())) {
-        //     model.addAttribute("Error", "Las contraseñas no son iguales");
-        //     return "registro";
-        // }
         User u = userService.registerUser(user);
         session.setAttribute("userId", u.getId());
         return "redirect:/home";
-
     }
     
     @GetMapping("/registro")
-    public String vistaRegistro(@Valid @ModelAttribute("user")User user){
+    public String vistaRegistro(@ModelAttribute("user")User user){
         return "registro";
     }
     
@@ -83,8 +81,11 @@ public class UserController {
 //         }
 //     }
 
+//para ver publicaciones en el home en general
     @GetMapping("home")
-    public String home(){
+    public String home(@ModelAttribute ("user")User user, Model model){
+        List<Publicacion> publicaciones = publicacionService.mostrarPublicacions();
+        model.addAttribute("publicaciones", publicaciones);
     return"home";
     }
 
