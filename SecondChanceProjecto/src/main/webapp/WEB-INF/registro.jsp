@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
 
 
 
-    <form:form method="POST" action="registerpost" modelAttribute="user">
+    <form:form method="POST" action="/registro" modelAttribute="user">
 
         <p>
             <form:label class="form-label" path="nombre">Nombre:</form:label>

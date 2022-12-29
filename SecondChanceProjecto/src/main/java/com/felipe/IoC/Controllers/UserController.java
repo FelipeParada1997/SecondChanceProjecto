@@ -26,21 +26,21 @@ public class UserController {
 
     //---------------------------------------------register login--------------------------------------------------
 
-    @RequestMapping(value = "/", method= RequestMethod.GET)
+    @RequestMapping(value = "/login", method= RequestMethod.GET)
     public String index(Model model, HttpSession session,
                         @ModelAttribute("user") User user) {
-        return "/user/index.jsp";
+        return "/home";
     }
 
     @PostMapping("/registro")
     public String indexregister(@Valid @ModelAttribute("user") User user,
                                 BindingResult result, HttpSession session, Model model) {
         if (result.hasErrors()) {
-            return "/user/index.jsp";
+            return "registro";
         }
         if(!user.getPassword().equals(user.getPasswordConfirm())) {
             model.addAttribute("Error", "Las contraseñas no son iguales");
-            return "/user/index.jsp";
+            return "registro";
         }
         User u = userService.registerUser(user);
         session.setAttribute("userId", u.getId());
@@ -58,18 +58,18 @@ public class UserController {
             return "redirect:/home";
         } else {
             model.addAttribute("error","Please try again");
-            return "/user/index.jsp";
+            return "login";
         }
     }
 
     @GetMapping("/login")
     public String vistaLogin(){
-        return "login.jsp";
+        return "login";
     }
 
     //---------------------------------------------Home--------------------------------------------------
 
-    @RequestMapping (value = "/home", method = RequestMethod.GET)
+    @RequestMapping (value = "/homee", method = RequestMethod.GET)
     public String home(Model model,HttpSession session) {
         if((Long) session.getAttribute("userId") == null) {
             return "redirect:/";
@@ -77,7 +77,7 @@ public class UserController {
             List<Publicacion> publicaciones = publicacionService.mostrarPublicacions();
             model.addAttribute("listpulicacion", publicaciones);
             model.addAttribute("user", userService.findUserById((Long)session.getAttribute("userId")));
-            return "/user/home.jsp";
+            return "/user/home";
         }
     }
 
