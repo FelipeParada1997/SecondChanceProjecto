@@ -36,7 +36,7 @@ public class UserController {
     public String indexregister(@Valid @ModelAttribute("user") User user,
                                 BindingResult result, HttpSession session, Model model) {
         if (result.hasErrors()) {
-            return "/user/index.jsp";
+            return "/user/index";
         }
         if(!user.getPassword().equals(user.getPasswordConfirm())) {
             model.addAttribute("Error", "Las contraseñas no son iguales");
@@ -58,13 +58,13 @@ public class UserController {
             return "redirect:/home";
         } else {
             model.addAttribute("error","Please try again");
-            return "/user/index.jsp";
+            return "/user/index";
         }
     }
 
     @GetMapping("/login")
     public String vistaLogin(){
-        return "login.jsp";
+        return "login";
     }
 
     //---------------------------------------------Home--------------------------------------------------
