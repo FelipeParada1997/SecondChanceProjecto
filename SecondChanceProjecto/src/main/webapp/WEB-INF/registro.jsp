@@ -16,8 +16,7 @@
 </head>
 <body>
     <div class="container">
-    <h1>Register!</h1>
-
+    <h1>Registro!</h1>
 
 
     <form:form method="POST" action="/registro" modelAttribute="user">
@@ -47,24 +46,7 @@
         </p>
         <input type="submit" value="Register!"/>
     </form:form>
-
-
-
-
-
-    <h1>Login</h1>
-    <p><c:out value="${logError}"/>Error en inicio de sesion,por favor reintente</p>
-    <form method="post" action="/loginpost">
-        <p>
-            <label class="form-label" for="email">Email</label>
-            <input  class="form-control" type="text" id="email" name="email"/>
-        </p>
-        <p>
-            <label class="form-label" for="password">Password</label>
-            <input  class="form-control" type="password" id="password" name="password"/>
-        </p>
-        <input type="submit" value="Login!"/>
-    </form>
+    
 </div>
 </body>
 </html>
