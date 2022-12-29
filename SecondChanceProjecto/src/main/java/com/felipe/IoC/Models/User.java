@@ -1,5 +1,6 @@
 package com.felipe.IoC.Models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class User extends Base{
     private String apellido;
 
     @PastOrPresent
-    private Integer fecha_nacimiento;
+    private Date fecha_nacimiento;
 
 
     @NotNull
@@ -51,7 +52,7 @@ public class User extends Base{
     public User() {
     }
 
-    public User(String nombre, String apellido, Integer fecha_nacimiento, String email, String password, String passwordConfirm) {
+    public User(String nombre, String apellido, Date fecha_nacimiento, String email, String password, String passwordConfirm) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fecha_nacimiento = fecha_nacimiento;
