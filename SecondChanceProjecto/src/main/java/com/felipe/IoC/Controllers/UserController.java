@@ -77,7 +77,7 @@ public class UserController {
             List<Publicacion> publicaciones = publicacionService.mostrarPublicacions();
             model.addAttribute("listpulicacion", publicaciones);
             model.addAttribute("user", userService.findUserById((Long)session.getAttribute("userId")));
-            return "/user/home.jsp";
+            return "/user/home";
         }
     }
 
