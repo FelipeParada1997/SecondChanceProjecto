@@ -52,7 +52,7 @@ public class PublicacionController {
     public String verPublicaciones(@ModelAttribute("publicacion")Publicacion publicacion,Model model){
         List<Publicacion> publicacionn = publicacionService.mostrarPublicacions();
         model.addAttribute("publicacion", publicacionn);
-        return "home";
+        return "home.jsp";
     }
     //para borrar la publicacion
     @GetMapping("/SecondChance/Publicacion/{id}/delete")

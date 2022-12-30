@@ -59,6 +59,8 @@
 
             <div class="contenedor publicaciones">
                 <div class="contieneForeach">
+
+                    <%--<c:forEach items='${}' var='' > --%>
                         <div class="publicacion">
                             <div class="foto">
                                 <img class="foto" src="https://www.publimetro.cl/resizer/5kck4-Julb9l4t70SgTp_aE2Yyk=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/QR6PIGQRZJGIREAHFESUPMKA64.jpg" alt="perrito">
