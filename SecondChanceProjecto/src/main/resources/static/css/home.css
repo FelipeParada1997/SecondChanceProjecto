@@ -1,0 +1,58 @@
+#logo{
+    width: 500px;
+    margin-left: 250px;
+}
+.btn{
+    background: rgb(110, 226, 207) !important;
+    border-color: #5dd2c3 !important;
+    border-width: 5px !important;
+    padding: 20px !important;
+    margin-left: 80px;
+    width: 300px;
+    
+    color: white !important;
+    font-size: 42px !important;
+}
+.d-block{
+    width: 800px ;
+    height: 800px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#carouselExampleControls{
+    border: 5px solid black;
+}
+.contenedor{
+    margin-top: 30px;
+    display: inline-block !important;
+}
+.foto{
+    width: 350px !important;
+    height: 250px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 5px solid aqua;
+    }
+.publicacion{
+    margin-left: 60PX;
+    display: inline-block;
+    align-items: center;
+    border: 3px solid rgb(101, 221, 151);
+    border-radius: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
+
+}
+.nav-item{
+    padding-left: 40px;
+}
+.descripcion{
+    border: 8px solid rgb(247, 220, 231);
+    border-radius: 10px;
+    padding: 5px;
+
+}
+.cuadrado{
+    border: none;
+    background-color: #ffffff;
+}
