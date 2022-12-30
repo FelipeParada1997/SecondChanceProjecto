@@ -31,4 +31,5 @@ public class Contacto extends Base{
     @JoinColumn(name="user_id")
     private User user;
 
+
 }

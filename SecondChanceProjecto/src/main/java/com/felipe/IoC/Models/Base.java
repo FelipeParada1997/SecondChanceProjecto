@@ -1,6 +1,7 @@
 package com.felipe.IoC.Models;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,9 +11,8 @@ import java.util.Date;
 @MappedSuperclass
 @Getter
 @Setter
+@NoArgsConstructor
 public abstract class Base {
-    public Base() {
-    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
