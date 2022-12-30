@@ -9,6 +9,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "users_inst")
 public class UserInst extends Base{
@@ -42,17 +49,4 @@ public class UserInst extends Base{
     @JoinColumn(name="user_id")
     private User user;
 
-    public UserInst() {
-    }
-
-    public UserInst(String nombre,String nombre_Inst,String rut,String telefono,String ciudad,String region) {
-        this.nombre = nombre;
-        this.nombre_Inst = nombre_Inst;
-        this.rut = rut;
-        this.telefono = telefono;
-        this.ciudad = ciudad;
-        Region = region;
-    }
-
-    
 }

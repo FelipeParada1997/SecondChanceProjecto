@@ -11,9 +11,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -30,11 +32,4 @@ public class Ciudad extends Base{
     @JoinColumn(name="region_id")
     private Region region;
 
-    public Ciudad() {
-    }
-
-    public Ciudad(String nombre_ciudad) {
-        this.nombre_ciudad = nombre_ciudad;
-    }
-    
 }
