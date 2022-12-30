@@ -60,8 +60,6 @@ public class User extends Base{
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Formulario> formularios;
 
-    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-    private List<Like> likes;
 
     public User() {
     }

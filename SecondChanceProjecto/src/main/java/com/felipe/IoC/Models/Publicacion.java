@@ -39,15 +39,13 @@ public class Publicacion extends Base{
     @OneToOne(mappedBy="publicacion", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Animal animales;
 
-    @OneToMany(mappedBy="dojo", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="publicacion", fetch = FetchType.LAZY)
     private List<Formulario> formularios;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ciudad_id")
     private Ciudad ciudad;
 
-    @OneToMany(mappedBy="publicaciones", fetch = FetchType.LAZY)
-    private List<Like> likes;
 
     public Publicacion(){
     }
