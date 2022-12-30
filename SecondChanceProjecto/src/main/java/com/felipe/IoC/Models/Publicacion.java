@@ -31,20 +31,23 @@ public class Publicacion extends Base{
     @Size(message = "falta agregar una descripcion")
     private String descripcion;
 
+
+    @OneToOne(mappedBy="publicacion", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    private Animal animales;
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
 
 
-    @OneToOne(mappedBy="publicacion", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    private Animal animales;
-
-    @OneToMany(mappedBy="publicacion", fetch = FetchType.LAZY)
-    private List<Formulario> formularios;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ciudad_id")
     private Ciudad ciudad;
+
+    
+    @OneToMany(mappedBy="publicacion", fetch = FetchType.LAZY)
+    private List<Formulario> formularios;
 
 
     public Publicacion(){

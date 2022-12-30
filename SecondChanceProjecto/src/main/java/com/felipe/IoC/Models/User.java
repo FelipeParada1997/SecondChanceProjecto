@@ -48,14 +48,14 @@ public class User extends Base{
     @Transient
     private String passwordConfirm;
 
-    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-    private List<Publicacion> publicaciones;
-
     @OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Contacto contacto;
 
     @OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private UserInst userInst;
+
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Publicacion> publicaciones;
     
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Formulario> formularios;
