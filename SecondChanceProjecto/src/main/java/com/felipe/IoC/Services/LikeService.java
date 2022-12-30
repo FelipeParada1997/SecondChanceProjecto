@@ -12,16 +12,4 @@ public class LikeService extends BaseService<Like>{
         super(baseRepository);
     }
 
-    //-------------------------------------------Nose si esta bien-------------------------------------
-    public Like saveLike(Like like) {
-        return likeRepository.save(like);
-    }
-
-    public void deleteLike(Long id) {
-        Optional<Like> like = likeRepository.findById(id);
-        if(like.isPresent()) {
-            likeRepository.deleteById(id);
-        }
-    }
-
 }

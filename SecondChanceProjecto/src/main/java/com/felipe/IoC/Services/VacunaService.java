@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service;
 public class VacunaService extends BaseService<Vacuna> {
     private final VacunaRepository vacunaRepository;
 
+
 }
