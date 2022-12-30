@@ -9,9 +9,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -23,12 +25,5 @@ public class Region extends Base {
 
     @OneToMany(mappedBy="region", fetch = FetchType.LAZY)
     private List<Ciudad> ciudades;
-
-    public Region() {
-    }
-
-    public Region(String nombre_region) {
-        this.nombre_region = nombre_region;
-    }
     
 }

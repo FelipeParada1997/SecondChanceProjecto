@@ -17,8 +17,10 @@ import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -59,16 +61,4 @@ public class User extends Base{
     
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Formulario> formularios;
-
-
-    public User() {
-    }
-
-    public User(String nombre, String apellido, Date fecha_nacimiento, String email, String password) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.email = email;
-        this.password = password;;
-    }
 }

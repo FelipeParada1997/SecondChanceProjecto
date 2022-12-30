@@ -8,9 +8,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -21,9 +23,5 @@ public class TipoAnimal extends Base{
 
     @OneToMany(mappedBy="tipoAnimal", fetch = FetchType.LAZY)
     private List<Animal> animales;
-
-    public TipoAnimal(String tipoAnimal) {
-        this.tipoAnimal = tipoAnimal;
-    }
 
 }

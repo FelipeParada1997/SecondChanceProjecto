@@ -14,9 +14,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -45,19 +47,8 @@ public class Publicacion extends Base{
     @JoinColumn(name="ciudad_id")
     private Ciudad ciudad;
 
-    
+
     @OneToMany(mappedBy="publicacion", fetch = FetchType.LAZY)
     private List<Formulario> formularios;
-
-
-    public Publicacion(){
-    }
-
-    public Publicacion(String titulo,String descripcion, User user) {
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.user = user;
-    }
-    
     
 }
