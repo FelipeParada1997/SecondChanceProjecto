@@ -14,9 +14,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -31,30 +33,22 @@ public class Publicacion extends Base{
     @Size(message = "falta agregar una descripcion")
     private String descripcion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    private User user;
-
 
     @OneToOne(mappedBy="publicacion", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Animal animales;
 
-    @OneToMany(mappedBy="publicacion", fetch = FetchType.LAZY)
-    private List<Formulario> formularios;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ciudad_id")
     private Ciudad ciudad;
 
 
-    public Publicacion(){
-    }
-
-    public Publicacion(String titulo,String descripcion, User user) {
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.user = user;
-    }
-    
+    @OneToMany(mappedBy="publicacion", fetch = FetchType.LAZY)
+    private List<Formulario> formularios;
     
 }

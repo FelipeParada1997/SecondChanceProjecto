@@ -8,9 +8,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -24,16 +26,5 @@ public class Personalidad extends Base{
 
     @OneToMany(mappedBy="personalidad", fetch = FetchType.LAZY)
     private List<Animal> animales;
-
-
-    public Personalidad(){
-
-    }
-
-    public Personalidad(String tipo_personalidad, String nivel_energia) {
-        this.tipo_personalidad = tipo_personalidad;
-        this.nivel_energia = nivel_energia;
-    }
-
     
 }

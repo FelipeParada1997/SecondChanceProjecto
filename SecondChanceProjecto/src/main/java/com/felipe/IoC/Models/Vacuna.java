@@ -10,9 +10,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -28,11 +30,5 @@ public class Vacuna extends Base{
         inverseJoinColumns = @JoinColumn(name = "animal_id")
     )
     private List<Animal> animales;
-
-    
-    public Vacuna(String nombe_vacunas) {
-        this.nombe_vacunas = nombe_vacunas;
-    }
-
     
 }
