@@ -28,4 +28,11 @@ public class Vacuna extends Base{
         inverseJoinColumns = @JoinColumn(name = "animal_id")
     )
     private List<Animal> animales;
+
+    
+    public Vacuna(String nombe_vacunas) {
+        this.nombe_vacunas = nombe_vacunas;
+    }
+
+    
 }
