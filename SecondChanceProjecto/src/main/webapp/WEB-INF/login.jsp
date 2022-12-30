@@ -23,7 +23,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
             <h1 class="tittle">Inicia con</h1>
             <div class="social-login">
             <div class="social-login-element">
-                <img src="/resources/imagenes/google.png" alt="google-image">
+                <img src="https://raw.githubusercontent.com/ederivc/LoginForm-HTML-CSS/9532600615c67763640acb948675adf3a726e00f/images/facebook.svg" alt="google-image">
                 <span>Google</span>
             </div>
             <div class="social-login-element">
@@ -46,6 +46,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
     </form>
     <p>¿No tienes una cuenta?<span class="span">Crea una aquí!</span></p>
     </div>
+    <img src="imagenes/login.png" alt="login">
 </div>
     
 </body>
