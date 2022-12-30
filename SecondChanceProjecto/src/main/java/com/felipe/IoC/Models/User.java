@@ -3,13 +3,16 @@ package com.felipe.IoC.Models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
@@ -23,14 +26,15 @@ import lombok.Setter;
 public class User extends Base{
 
     @NotBlank
-    @Size(min = 2, max = 40 )
+    @Size(min = 2)
     private String nombre;
 
 
     @NotBlank
-    @Size(min = 5)
+    @Size(min = 4)
     private String apellido;
 
+    @NotNull
     @PastOrPresent
     private Date fecha_nacimiento;
 
@@ -47,15 +51,24 @@ public class User extends Base{
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Publicacion> publicaciones;
 
+    @OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    private Contacto contacto;
+
+    @OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    private UserInst userInst;
+    
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Formulario> formularios;
+
+
     public User() {
     }
 
-    public User(String nombre, String apellido, Date fecha_nacimiento, String email, String password, String passwordConfirm) {
+    public User(String nombre, String apellido, Date fecha_nacimiento, String email, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fecha_nacimiento = fecha_nacimiento;
         this.email = email;
-        this.password = password;
-        this.passwordConfirm = passwordConfirm;
+        this.password = password;;
     }
 }
