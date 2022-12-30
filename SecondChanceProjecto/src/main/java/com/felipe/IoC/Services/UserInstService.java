@@ -1,7 +1,9 @@
 package com.felipe.IoC.Services;
 
 import com.felipe.IoC.Models.User;
+import com.felipe.IoC.Models.UserInst;
 import com.felipe.IoC.Repositories.BaseRepository;
+import com.felipe.IoC.Repositories.UserInstRepository;
 import com.felipe.IoC.Repositories.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
@@ -13,40 +15,42 @@ public class UserInstService extends BaseService<UserInst>{
 
    private final UserInstRepository userInstRepository;
 
-    public UserInstService(BaseRepository<UserInst> baseRepository) {
+    public UserInstService(BaseRepository<UserInst> baseRepository, UserInstRepository userInstRepository) {
         super(baseRepository);
+        this.userInstRepository = userInstRepository;
     }
+
     //-----------------------------------------------------------------------------------------
     public UserInst findUserById(Long id) {
-        Optional<User> u = userInstRepository.findById(id);
-        if(u.isPresent()) {
-            return u.get();
+        Optional<UserInst> I = userInstRepository.findById(id);
+        if(I.isPresent()) {
+            return I.get();
         } else {
             return null;
         }
     }
 
     public UserInst findByEmail(String email) {
-        return userRepository.findByEmail(email);
+        return userInstRepository.findByEmail(email);
     }
     //------------------------------------------------------------------------------------------
 
-    public User createUser(User u) {
-        return userInstRepository.save(u);
+    public UserInst createUserInst(UserInst userI) {
+        return userInstRepository.save(userI);
     }
 
-    public User registerUser(User user) {
-        String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-        user.setPassword(hashed);
-        return userInstRepository.save(user);
+    public UserInst registerUserInst(UserInst userI) {
+        String hashed = BCrypt.hashpw(userI.getPassword(), BCrypt.gensalt());
+        userI.setPassword(hashed);
+        return userInstRepository.save(userI);
     }
 
-    public boolean authenticateUser(String email, String password) {
-        User user = userInstRepository.findByEmail(email);
-        if(user == null) {
+    public boolean authenticateUserInst(String email, String password) {
+        UserInst userInst = userInstRepository.findByEmail(email);
+        if(userInst == null) {
             return false;
         } else {
-            if(BCrypt.checkpw(password, user.getPassword())) {
+            if(BCrypt.checkpw(password, userInst.getPassword())) {
                 return true;
             } else {
                 return false;
