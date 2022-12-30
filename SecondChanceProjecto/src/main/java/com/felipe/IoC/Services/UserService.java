@@ -1,6 +1,7 @@
 package com.felipe.IoC.Services;
 
 import com.felipe.IoC.Models.User;
+import com.felipe.IoC.Repositories.BaseRepository;
 import com.felipe.IoC.Repositories.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,9 @@ public class UserService extends BaseService<User>{
     public UserService(UserRepository userRepository) {
         super(userRepository);
         this.userRepository = userRepository;
-
     }
-    //-----------------------------------  -------------------------------
+
+//-----------------------------------  -------------------------------
 
     public User findUserById(Long id) {
         Optional<User> u = userRepository.findById(id);

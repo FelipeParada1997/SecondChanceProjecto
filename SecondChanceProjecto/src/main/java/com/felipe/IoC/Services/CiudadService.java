@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 public class CiudadService extends BaseService<Ciudad>{
     private final CiudadRepository ciudadRepository;
 
-//FALTA CONSTRUCTOR
+    public CiudadService(BaseRepository<Ciudad> baseRepository) {
+        super(baseRepository);
+        }
+
     }
 
