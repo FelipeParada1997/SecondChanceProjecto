@@ -30,30 +30,30 @@ public class PublicacionController {
         this.userService = userService;
     }
     // para mostrar publicacion get
-    @GetMapping("/SecondChance/Publicacion")
+    @GetMapping("/Publicacion")
     public String crearPublicacion(@ModelAttribute("publicacion") Publicacion publicacion){
         return "publicacionver";
     }
     //para mostrar crear por post
-    @PostMapping("/SecondChance/Publicacion")
+    @PostMapping("/Publicacion")
     public String crearPublicacionn(@Valid @ModelAttribute("publicacion") Publicacion publicacion,BindingResult result, HttpSession session){
         if (result.hasErrors()) {
-            return "publicacionver";
+            return "publicacionver.jsp";
         }
         Long id = (Long) session.getAttribute("userId");
         User user = userService.findById(id);
         publicacion.setUser(user);
         publicacion.setTitulo(null);
         publicacion.setDescripcion(null);
-        return "redirect:/home";
+        return "redirect:/home.jsp";
     }
     //para mostrar todas en lista
-    @GetMapping("/SecondChance/verPublicaciones")
-    public String verPublicaciones(@ModelAttribute("publicacion")Publicacion publicacion,Model model){
-        List<Publicacion> publicacionn = publicacionService.mostrarPublicacions();
-        model.addAttribute("publicacion", publicacionn);
-        return "home.jsp";
-    }
+    //@GetMapping("/verPublicaciones")
+    //public String verPublicaciones(@ModelAttribute("publicacion")Publicacion publicacion,Model model){
+    //    List<Publicacion> publicacionn = publicacionService.mostrarPublicaciones();
+    //    model.addAttribute("publicacion", publicacionn);
+    //    return "home.jsp";
+    //}
     //para borrar la publicacion
     @GetMapping("/SecondChance/Publicacion/{id}/delete")
     public String deletePublic(@PathVariable("id")Long id){

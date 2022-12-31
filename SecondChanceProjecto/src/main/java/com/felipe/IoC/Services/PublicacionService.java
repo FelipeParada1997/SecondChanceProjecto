@@ -1,6 +1,7 @@
 package com.felipe.IoC.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.felipe.IoC.Repositories.BaseRepository;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,14 @@ public class PublicacionService extends BaseService<Publicacion>{
     public PublicacionService(BaseRepository<Publicacion> baseRepository, PublicacionRepository publicacionRepository) {
         super(baseRepository);
         this.publicacionRepository = publicacionRepository;
+    }
+
+    public Publicacion mostrarPublicaciones(Long id){
+        Optional<Publicacion> mostrar = publicacionRepository.findById(id);
+        if (mostrar.isPresent()) {
+            return mostrar.get();
+        } else {
+            return null;
+        }
     }
 }

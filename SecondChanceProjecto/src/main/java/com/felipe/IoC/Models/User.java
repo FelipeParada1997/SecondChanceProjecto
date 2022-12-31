@@ -53,8 +53,6 @@ public class User extends Base{
     @OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Contacto contacto;
 
-    @OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    private UserInst userInst;
 
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Publicacion> publicaciones;
