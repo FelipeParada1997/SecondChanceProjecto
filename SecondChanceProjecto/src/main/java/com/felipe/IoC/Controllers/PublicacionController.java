@@ -38,14 +38,14 @@ public class PublicacionController {
     @PostMapping("/Publicacion")
     public String crearPublicacionn(@Valid @ModelAttribute("publicacion") Publicacion publicacion,BindingResult result, HttpSession session){
         if (result.hasErrors()) {
-            return "publicacionver.jsp";
+            return "publicacionver";
         }
         Long id = (Long) session.getAttribute("userId");
         User user = userService.findById(id);
         publicacion.setUser(user);
         publicacion.setTitulo(null);
         publicacion.setDescripcion(null);
-        return "redirect:/home.jsp";
+        return "redirect:/home";
     }
     //para mostrar todas en lista
     //@GetMapping("/verPublicaciones")

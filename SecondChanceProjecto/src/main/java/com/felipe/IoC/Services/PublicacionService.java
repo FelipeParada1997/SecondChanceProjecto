@@ -18,12 +18,7 @@ public class PublicacionService extends BaseService<Publicacion>{
         this.publicacionRepository = publicacionRepository;
     }
 
-    public Publicacion mostrarPublicaciones(Long id){
-        Optional<Publicacion> mostrar = publicacionRepository.findById(id);
-        if (mostrar.isPresent()) {
-            return mostrar.get();
-        } else {
-            return null;
-        }
+    public List<Publicacion> mostrarPublicaciones(){
+        return publicacionRepository.findAll();
     }
 }
