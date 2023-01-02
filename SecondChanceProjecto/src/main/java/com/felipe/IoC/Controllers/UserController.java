@@ -34,13 +34,21 @@ public class UserController {
     @PostMapping("/registerpost")
     public String indexregister(@Valid @ModelAttribute("user") User user,
                                 BindingResult result, HttpSession session, Model model) {
+        System.out.println(user.getEmail() + user.getNombre() + user.getApellido() +user.getPasswordConfirm() + user.getFechaNacimiento()
+        + user.getPassword());
         if (result.hasErrors()) {
+            return "loginregister.jsp";
+        }
+        boolean duplicated = userService.duplicatedUser(user.getEmail());
+        if (duplicated) {
+            model.addAttribute("error", "Correo electronico ya esta en uso! Por favor intenta denuevo con un correo diferente!");
             return "loginregister.jsp";
         }
         User u = userService.registerUser(user);
         session.setAttribute("userId", u.getId());
         return "redirect:/home";
     }
+
 
     @GetMapping("/iniciasesion/registrate")
     public String vistaRegistro(@ModelAttribute("user") User user) {
