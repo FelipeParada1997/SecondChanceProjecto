@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="css/Home.css">
     <script src="https://kit.fontawesome.com/8c2ce3db19.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Second Chance</title>
@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <img id=logo src="imgs/Second_Chance.jpg" alt="Logo de Second Chance">
+        <img id=logo src="imagenes/Second_Chance.jpg" alt="Logo de Second Chance">
         <button class="btn">Registrate</button>
         <button class="btn">Inicia sesion</button>
 
@@ -23,7 +23,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="imagenes/GettyImages-977898246-1942d4364fa64bd2ba792a86f4f24715.jpg" alt="First slide">
+                        <img class="d-block w-100" src="https://i.blogs.es/808765/dpoty-puppy-2nd--c--tracy-kirby-the-kennel-club-2/1366_2000.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="imagenes/e0b61-akita-americano-todo-lo-que-necesitas-saber-1-.jpg" alt="Second slide">
