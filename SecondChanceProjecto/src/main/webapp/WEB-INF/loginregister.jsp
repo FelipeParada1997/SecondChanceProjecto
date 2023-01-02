@@ -55,8 +55,8 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                 <form:form method="post" action="/registerpost" modelAttribute="user">
                     <h2>Únete</h2>
                     <div class="input-group">
-                        <form:input type="text" id="nombre" name="nombre" required>
-                        <form:label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                        <label for="nombre">Nombre</label>
                     </div>
                     <div class="input-group">
                         <form:input type="text" id="apellido" name="apellido" required>
@@ -68,16 +68,16 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                         <form:label for="fechaNacimiento">Fecha de nacimiento</label>
                     </div>
                     <div class="input-group">
-                        <form:input type="text" id="email" name="email" required>
-                        <form:label for="email">Correo electrónico</label>
+                        <input type="text" id="email" name="email" required>
+                        <label for="email">Correo electrónico</label>
                     </div>
                     <div class="input-group">
-                        <form:input type="password" id="password" name="password" required>
-                        <form:label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" required>
+                        <label for="password">Contraseña</label>
                     </div>
                     <div class="input-group">
-                        <form:input type="password" id="passwordConfirm" name="passwordConfirm" required>
-                        <form:label for="passwordConfirm">Confirma contraseña</label>
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                        <label for="passwordConfirm">Confirma contraseña</label>
                     </div>
 
 
