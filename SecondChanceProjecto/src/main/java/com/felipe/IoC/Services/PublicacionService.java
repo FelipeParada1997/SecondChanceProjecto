@@ -17,4 +17,8 @@ public class PublicacionService extends BaseService<Publicacion>{
         super(baseRepository);
         this.publicacionRepository = publicacionRepository;
     }
+
+    public List<Publicacion> mostrarPublicaciones(){
+        return publicacionRepository.findAll();
+    }
 }
