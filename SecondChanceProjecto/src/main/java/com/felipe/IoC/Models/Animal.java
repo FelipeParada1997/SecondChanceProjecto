@@ -45,8 +45,8 @@ public class Animal extends Base{
     private Personalidad personalidad;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="tipoanimal_id")
-    private TipoAnimal tipoAnimal;
+    @JoinColumn(name="tipodeanimal_id")
+    private TipoAnimal tipoDeAnimal;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

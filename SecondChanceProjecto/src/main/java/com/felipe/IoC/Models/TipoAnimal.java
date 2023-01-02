@@ -19,9 +19,9 @@ import lombok.Setter;
 @Table(name = "tipoanimales")
 public class TipoAnimal extends Base{
     
-    private String tipoAnimal;
+    private String tipoDeAnimal;
 
-    @OneToMany(mappedBy="tipoAnimal", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="tipoDeAnimal", fetch = FetchType.LAZY)
     private List<Animal> animales;
 
 }
