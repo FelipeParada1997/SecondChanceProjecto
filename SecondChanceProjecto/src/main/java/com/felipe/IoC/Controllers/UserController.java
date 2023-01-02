@@ -42,7 +42,7 @@ public class UserController {
         return "redirect:/home";
     }
     
-    @GetMapping("/registrologin")
+    @GetMapping("/iniciasesion/registrate")
     public String vistaRegistro(@ModelAttribute("user")User user){
         return "loginregister.jsp";
     }
@@ -62,7 +62,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/regitrologin")
+    @GetMapping("/iniciasesion/registrate")
     public String vistaLogin(){
         return "loginregister.jsp";
     }

@@ -15,7 +15,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
         <!-- Css -->
 <link rel="stylesheet" href="/css/loginregister.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <title>Login</title>
+    <title>Inicia sesión | Registrate</title>
 </head>
 <body>
 

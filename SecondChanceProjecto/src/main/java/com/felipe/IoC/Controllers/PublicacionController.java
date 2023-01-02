@@ -86,11 +86,11 @@ public class PublicacionController {
    //     return "home";
    // }
 
-    @GetMapping("home")
+    @GetMapping("/home")
     public String home(@ModelAttribute ("user")User user, Model model){
         List<Animal> publicaciones = animalService.findAll();
         model.addAttribute("animalesItems", publicaciones);
-        return "home";
+        return "home.jsp";
     }
 
 }
