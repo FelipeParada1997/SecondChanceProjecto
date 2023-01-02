@@ -37,13 +37,17 @@ public class UserController {
         if (result.hasErrors()) {
             return "loginregister.jsp";
         }
-        User u = userService.registerUser(user);
-        session.setAttribute("userId", u.getId());
-        return "redirect:/home";
+        if(!user.getPassword().equals(user.getPasswordConfirm())){
+            model.addAttribute("Error", "Las contraseñas no son identicas");
+            return "loginregister.jsp";
+        }
+            User u = userService.registerUser(user);
+            session.setAttribute("userId", u.getId());
+            return "redirect:/home";
     }
 
-    @GetMapping("/iniciasesion/registrate")
-    public String vistaRegistro(@ModelAttribute("user") User user) {
+        @GetMapping("/iniciasesion/registrate")
+    public String vistaRegistro(Model model, HttpSession session, @ModelAttribute("user") User user) {
         return "loginregister.jsp";
     }
 
@@ -57,7 +61,7 @@ public class UserController {
             session.setAttribute("userId", u.getId());
             return "redirect:/home";
         } else {
-            model.addAttribute("error", "porfavor intente otra vez");
+            model.addAttribute("Error", "Por favor intente otra vez");
             return "loginregister.jsp";
         }
     }
