@@ -41,28 +41,29 @@ public class UserController {
         session.setAttribute("userId", u.getId());
         return "redirect:/home";
     }
-    
+
     @GetMapping("/iniciasesion/registrate")
-    public String vistaRegistro(@ModelAttribute("user")User user){
+    public String vistaRegistro(@ModelAttribute("user") User user) {
         return "loginregister.jsp";
     }
-    
+
 
     @PostMapping("/loginpost")
     public String indexlogin(@RequestParam("email") String email,
-                            @RequestParam("password") String password, Model model, HttpSession session) {
+                             @RequestParam("password") String password, Model model, HttpSession session) {
         boolean authenticated = userService.authenticateUser(email, password);
-        if(authenticated) {
+        if (authenticated) {
             User u = userService.findByEmail(email);
             session.setAttribute("userId", u.getId());
             return "redirect:/home";
         } else {
-            model.addAttribute("error","porfavor intente otra vez");
+            model.addAttribute("error", "porfavor intente otra vez");
             return "loginregister.jsp";
         }
     }
+}
 
-    @GetMapping("/iniciasesion/registrate")
+    /*@GetMapping("/iniciasesion/registrate")
     public String vistaLogin(){
         return "loginregister.jsp";
     }
@@ -74,4 +75,4 @@ public class UserController {
 
 
 
-}
+}*/
