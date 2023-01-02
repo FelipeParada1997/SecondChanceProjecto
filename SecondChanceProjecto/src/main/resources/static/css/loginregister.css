@@ -12,9 +12,8 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(Documents/GitHub/SecondChanceProjecto/src/main/webapp/WEB-INF/imgs/pexels-helena-lopes-3114143.jpg);
+    background-image: url(imgCss/fondologinregister.jpg);
     background-size: cover;
-
 }
 
 .wrapper{
@@ -55,6 +54,7 @@ h2{
     color: #fff;
     text-align: center;
 }
+
 
 .input-group{
     position: relative;
@@ -168,3 +168,4 @@ button{
 .social-icons a:hover i {
     color: rgba(0, 0, 0, .3);
 }
+
