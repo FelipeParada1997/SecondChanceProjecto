@@ -39,19 +39,6 @@ public class UserController {
         if (result.hasErrors()) {
             return "loginregister.jsp";
         }
-
-        if(!user.getPassword().equals(user.getPasswordConfirm())){
-            model.addAttribute("Error", "Las contraseñas no son identicas");
-            return "loginregister.jsp";
-        }
-            User u = userService.registerUser(user);
-            session.setAttribute("userId", u.getId());
-            return "redirect:/home";
-    }
-/*
-        @GetMapping("/iniciasesion/registrate")
-    public String vistaRegistro(Model model, HttpSession session, @ModelAttribute("user") User user) {
-
         boolean duplicated = userService.duplicatedUser(user.getEmail());
         if (duplicated) {
             model.addAttribute("error", "Correo electronico ya esta en uso! Por favor intenta denuevo con un correo diferente!");
@@ -62,6 +49,7 @@ public class UserController {
         return "redirect:/home";
     }
 */
+
 
     @GetMapping("/iniciasesion/registrate")
     public String vistaRegistro(Model model, HttpSession session, @ModelAttribute("user") User user) {
