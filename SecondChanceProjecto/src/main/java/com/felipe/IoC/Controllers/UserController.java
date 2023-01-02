@@ -48,7 +48,7 @@ public class UserController {
             session.setAttribute("userId", u.getId());
             return "redirect:/home";
     }
-
+/*
         @GetMapping("/iniciasesion/registrate")
     public String vistaRegistro(Model model, HttpSession session, @ModelAttribute("user") User user) {
 
@@ -61,14 +61,13 @@ public class UserController {
         session.setAttribute("userId", u.getId());
         return "redirect:/home";
     }
+*/
 
-/*
     @GetMapping("/iniciasesion/registrate")
-    public String vistaRegistro(@ModelAttribute("user") User user) {
-
+    public String vistaRegistro(Model model, HttpSession session, @ModelAttribute("user") User user) {
         return "loginregister.jsp";
     }
-*/
+
 
     @PostMapping("/loginpost")
     public String indexlogin(@RequestParam("email") String email,
