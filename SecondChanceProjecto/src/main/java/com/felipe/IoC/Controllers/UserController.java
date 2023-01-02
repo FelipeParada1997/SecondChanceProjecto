@@ -31,11 +31,11 @@ public class UserController {
 
     //---------------------------------------------register login--------------------------------------------------
 
-    @PostMapping("/registro")
+    @PostMapping("/registerpost")
     public String indexregister(@Valid @ModelAttribute("user") User user,
                                 BindingResult result, HttpSession session, Model model) {
         if (result.hasErrors()) {
-            return "registro";
+            return "loginregister.jsp";
         }
         User u = userService.registerUser(user);
         session.setAttribute("userId", u.getId());
@@ -44,11 +44,11 @@ public class UserController {
     
     @GetMapping("/registro")
     public String vistaRegistro(@ModelAttribute("user")User user){
-        return "registro";
+        return "loginregister.jsp";
     }
     
 
-    @PostMapping("/login")
+    @PostMapping("/loginpost")
     public String indexlogin(@RequestParam("email") String email,
                             @RequestParam("password") String password, Model model, HttpSession session) {
         boolean authenticated = userService.authenticateUser(email, password);
@@ -58,13 +58,13 @@ public class UserController {
             return "redirect:/home";
         } else {
             model.addAttribute("error","porfavor intente otra vez");
-            return "login";
+            return "loginregister.jsp";
         }
     }
 
     @GetMapping("/login")
     public String vistaLogin(){
-        return "login";
+        return "loginregister.jsp";
     }
 
     //---------------------------------------------Home--------------------------------------------------
