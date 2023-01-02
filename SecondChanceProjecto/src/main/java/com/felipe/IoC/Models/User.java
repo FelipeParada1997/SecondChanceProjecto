@@ -38,7 +38,7 @@ public class User extends Base{
 
     @NotNull
     @PastOrPresent
-    private Date fecha_nacimiento;
+    private Date fechaNacimiento;
 
     @Email(message = "error de formato")
     private String email;

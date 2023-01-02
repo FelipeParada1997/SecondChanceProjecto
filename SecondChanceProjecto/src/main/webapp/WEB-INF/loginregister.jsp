@@ -26,12 +26,12 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 
                 <div class="input-group">
                     <input  type="text" id="email" name="email" required>
-                    <label  for="email">Email</label>
+                    <label  for="email">Correo electrónico</label>
                 </div>
 
                 <div class="input-group">
                     <input  type="password" id="password" name="password" required>
-                    <label  for="password">Password</label>
+                    <label  for="password">Contraseña</label>
                 </div>
 
                 <div class="remember">
