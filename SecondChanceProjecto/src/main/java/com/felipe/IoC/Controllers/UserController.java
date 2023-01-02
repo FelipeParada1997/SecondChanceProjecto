@@ -48,7 +48,6 @@ public class UserController {
         session.setAttribute("userId", u.getId());
         return "redirect:/home";
     }
-*/
 
 
     @GetMapping("/iniciasesion/registrate")
