@@ -69,9 +69,10 @@
                                 <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
                             </div>
                             <div class="descripcion">
-                                    <h6>Nombre</h6>
-                                    <h6>Genero</h6>
-                                    <h6>Nivel energia</h6>
+                                    <h6><c:out value='${animal.getNombre_mascota()}' /></h6>
+                                    <h6><c:out value='${animal.getGenero()}'/></h6>
+                                    <h6><c:out value='${animal.getTamaño()}'/></h6>
+                                    <h6><c:out value='${animal.getEdad()}'/></h6>
                             </div>
                         </div>
                         <div class="publicacion">
