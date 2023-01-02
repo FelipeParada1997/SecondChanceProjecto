@@ -31,7 +31,7 @@ public class Animal extends Base{
     private String nombre_mascota;
 
     @NotBlank
-    private String tamaño_mascota;
+    private String tamano_mascota;
 
     @PastOrPresent
     private Date edad;
@@ -59,9 +59,9 @@ public class Animal extends Base{
     public Animal() {
     }
 
-    public Animal(String nombre_mascota,String tamaño_mascota,Date edad) {
+    public Animal(String nombre_mascota,String tamano_mascota,Date edad) {
         this.nombre_mascota = nombre_mascota;
-        this.tamaño_mascota = tamaño_mascota;
+        this.tamano_mascota = tamano_mascota;
         this.edad = edad;
     }
 

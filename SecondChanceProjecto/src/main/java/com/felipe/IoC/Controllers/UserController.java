@@ -70,12 +70,7 @@ public class UserController {
     //---------------------------------------------Home--------------------------------------------------
 
 //para ver publicaciones en el home en general
-    @GetMapping("home")
-    public String home(@ModelAttribute ("user")User user, Model model){
-        List<Publicacion> publicaciones = publicacionService.mostrarPublicaciones();
-        model.addAttribute("publicaciones", publicaciones);
-    return "home";
-    }
+
 
 
 

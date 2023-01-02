@@ -1,3 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,7 @@
 
 <body>
     <header>
-        <img id=logo src="imagenes/Second_Chance.jpg" alt="Logo de Second Chance">
+        <img id=logo src="imgs/Second_Chance.jpg" alt="Logo de Second Chance">
         <button class="btn">Registrate</button>
         <button class="btn">Inicia sesion</button>
 
@@ -38,6 +41,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+            </div>
     </header>
 
 
@@ -60,7 +64,7 @@
             <div class="contenedor publicaciones">
                 <div class="contieneForeach">
 
-                    <%--<c:forEach items='${animalesItems}' var='animal' > --%>
+                    <c:forEach items='${animalesItems}' var='animal' > 
                         <div class="publicacion">
                             <div class="foto">
                                 <img class="foto" src="https://www.publimetro.cl/resizer/5kck4-Julb9l4t70SgTp_aE2Yyk=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/QR6PIGQRZJGIREAHFESUPMKA64.jpg" alt="perrito">
@@ -68,54 +72,18 @@
                             <div>
                                 <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
                             </div>
+
                             <div class="descripcion">
-                                    <h6><c:out value='${animal.getNombre_mascota()}' /></h6>
+                                    <h6><c:out value='${animal.getNombre_mascota()}'/></h6>
                                     <h6><c:out value='${animal.getGenero()}'/></h6>
-                                    <h6><c:out value='${animal.getTamaño()}'/></h6>
+                                    <h6><c:out value='${animal.getTamano_mascota()}'/></h6>
                                     <h6><c:out value='${animal.getEdad()}'/></h6>
                             </div>
+                            
+                            
                         </div>
-                        <div class="publicacion">
-                            <div class="foto">
-                                <img class="foto" src="imagenes/image.jpg" alt="dog2">
-                            </div>
-                            <div>
-                                <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
-                            </div>
-                            <div class="descripcion">
-                                    <h6>Nombre</h6>
-                                    <h6>Genero</h6>
-                                    <h6>Nivel energia</h6>
-                            </div>
-                        </div>
-                        <div class="publicacion">
-                            <div class="foto">
-                                <img class="foto" src="imagenes/image.jpg" alt="dog2">
-                            </div>
-                            <div>
-                                <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
-                            </div>
-                            <div class="descripcion">
-                                    <h6>Nombre</h6>
-                                    <h6>Genero</h6>
-                                    <h6>Nivel energia</h6>
-                            </div>
-                        </div>
-                        <div class="publicacion">
-                            <div class="foto">
-                                <img class="foto" src="imagenes/image.jpg" alt="dog2">
-                            </div>
-                            <div>
-                                <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
-                            </div>
-                            <div class="descripcion">
-                                    <h6>Nombre</h6>
-                                    <h6>Genero</h6>
-                                    <h6>Nivel energia</h6>
-                            </div>
-                        </div>
-                </div>
-                    <!-- </c:forEach> -->
+                        
+                    </c:forEach> 
                 </div>
             </div>
 

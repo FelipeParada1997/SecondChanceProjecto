@@ -76,14 +76,21 @@ public class PublicacionController {
         return "redirect:/SecondChance";
     }
 
-    @GetMapping("/home")
-    public String mostrarPublicacion(Model model, HttpSession session){
-        Long userId = (Long) session.getAttribute("userId");
-        User user = userService.findById(userId);
-        List<Animal> animales = animalService.findAll();
-        model.addAttribute("user", user);
-        model.addAttribute("animalesItems", animales);
-        return "carpetaNombre/home.jsp";
+    //@GetMapping("/home")
+    //public String mostrarPublicacion(Model model, HttpSession session){
+    //    Long userId = (Long) session.getAttribute("userId");
+    //    User user = userService.findById(userId);
+   //     List<Animal> animales = animalService.findAll();
+   //     model.addAttribute("user", user);
+   //     model.addAttribute("animalesItems", animales);
+   //     return "home";
+   // }
+
+    @GetMapping("home")
+    public String home(@ModelAttribute ("user")User user, Model model){
+        List<Animal> publicaciones = animalService.findAll();
+        model.addAttribute("animalesItems", publicaciones);
+        return "home";
     }
 
 }
