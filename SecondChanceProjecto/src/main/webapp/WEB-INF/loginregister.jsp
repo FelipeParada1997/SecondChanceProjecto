@@ -84,7 +84,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                             <div class="remember">
                                 <label><input type="checkbox"> Acepto los términos y condiciones</label>
                             </div>
-                            <button type="submit">Sign Up</button>
+                            <button type="submit">Registrate</button>
                             <div class="signUp-link">
                                 <p>¿Ya tienes cuenta?<a href="#" class="signInBtn-link">  Inicia sesión</a></p>
                             </div>
