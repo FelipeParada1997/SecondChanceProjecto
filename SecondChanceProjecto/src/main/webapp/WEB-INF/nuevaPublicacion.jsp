@@ -21,7 +21,7 @@
             <h1>Agregar nuevo Nombre</h1>
 
 
-            <form:form action="/names/new" method="POST" modelAttribute="nombre">
+            <form:form action="/publicacion" method="POST" modelAttribute="nombre">
                 <div class="formularioNombre">
                     <p>
                         <form:label class="form-label" path="nombre_mascota">Nombre mascota</form:label>

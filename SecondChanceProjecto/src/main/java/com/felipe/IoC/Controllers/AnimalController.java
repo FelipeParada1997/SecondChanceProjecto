@@ -15,9 +15,4 @@ public class AnimalController {
         this.serviceUser = serviceUser;
     }
 
-    @GetMapping("home")
-    public String mostrarAnimales(){
-        return "";
-    }
-
 }
