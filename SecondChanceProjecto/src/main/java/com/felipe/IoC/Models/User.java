@@ -19,6 +19,7 @@ import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @NoArgsConstructor
 @Getter
@@ -38,6 +39,7 @@ public class User extends Base{
 
     @NotNull
     @PastOrPresent
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date fechaNacimiento;
 
     @Email(message = "error de formato")

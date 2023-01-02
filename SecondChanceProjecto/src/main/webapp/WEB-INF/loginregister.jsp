@@ -20,12 +20,12 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 <body>
 
     <div class="wrapper">
-        <div class="form-wrapper sign-in">
+        <div class="form-wrapper sign-in" >
             <form method="post" action="/loginpost">
                 <h2>Inicia sesión</h2>
 
                 <div class="input-group">
-                    <input  type="text" id="email" name="email" required>
+                    <input  type="email" id="email" name="email" required>
                     <label  for="email">Correo electrónico</label>
                 </div>
 
@@ -52,33 +52,33 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
         </div>
 
             <div class="form-wrapper sign-up">
-                <form method="post" action="/registerpost">
+                <form:form method="post" action="/registerpost" modelAttribute="user">
                     <h2>Únete</h2>
                     <div class="input-group">
-                        <input type="text" id="nombre" name="nombre" required>
-                        <label for="nombre">Nombre</label>
-                        </div>
+                        <form:input type="text" id="nombre" name="nombre" required>
+                        <form:label for="nombre">Nombre</label>
+                    </div>
                     <div class="input-group">
-                        <input type="text" id="apellido" name="apellido" required>
-                        <label for="apellido">Apellido</label>
+                        <form:input type="text" id="apellido" name="apellido" required>
+                        <form:label for="apellido">Apellido</label>
                     </div>
 
                     <div class="input-group">
-                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-                        <label for="fechaNacimiento">Fecha de nacimiento</label>
+                        <form:input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                        <form:label for="fechaNacimiento">Fecha de nacimiento</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" id="email" name="email" required>
-                        <label for="email">Correo electrónico</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="password" id="password" name="password" required>
-                            <label for="password">Contraseña</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="password" id="passwordConfirm" name="passwordConfirm" required>
-                            <label for="passwordConfirm">Confirma contraseña</label>
-                        </div>
+                        <form:input type="text" id="email" name="email" required>
+                        <form:label for="email">Correo electrónico</label>
+                    </div>
+                    <div class="input-group">
+                        <form:input type="password" id="password" name="password" required>
+                        <form:label for="password">Contraseña</label>
+                    </div>
+                    <div class="input-group">
+                        <form:input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                        <form:label for="passwordConfirm">Confirma contraseña</label>
+                    </div>
 
 
                             <div class="remember">
@@ -88,7 +88,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                             <div class="signUp-link">
                                 <p>¿Ya tienes cuenta?<a href="#" class="signInBtn-link">  Inicia sesión</a></p>
                             </div>
-                    </form>
+                    </form:form>
                 </div>
         </div>
 

@@ -34,9 +34,12 @@ public class UserController {
     @PostMapping("/registerpost")
     public String indexregister(@Valid @ModelAttribute("user") User user,
                                 BindingResult result, HttpSession session, Model model) {
+        System.out.println(user.getEmail() + user.getNombre() + user.getApellido() +user.getPasswordConfirm() + user.getFechaNacimiento()
+        + user.getPassword());
         if (result.hasErrors()) {
             return "loginregister.jsp";
         }
+
         if(!user.getPassword().equals(user.getPasswordConfirm())){
             model.addAttribute("Error", "Las contraseñas no son identicas");
             return "loginregister.jsp";
@@ -48,9 +51,24 @@ public class UserController {
 
         @GetMapping("/iniciasesion/registrate")
     public String vistaRegistro(Model model, HttpSession session, @ModelAttribute("user") User user) {
-        return "loginregister.jsp";
+
+        boolean duplicated = userService.duplicatedUser(user.getEmail());
+        if (duplicated) {
+            model.addAttribute("error", "Correo electronico ya esta en uso! Por favor intenta denuevo con un correo diferente!");
+            return "loginregister.jsp";
+        }
+        User u = userService.registerUser(user);
+        session.setAttribute("userId", u.getId());
+        return "redirect:/home";
     }
 
+/*
+    @GetMapping("/iniciasesion/registrate")
+    public String vistaRegistro(@ModelAttribute("user") User user) {
+
+        return "loginregister.jsp";
+    }
+*/
 
     @PostMapping("/loginpost")
     public String indexlogin(@RequestParam("email") String email,
@@ -67,16 +85,3 @@ public class UserController {
     }
 }
 
-    /*@GetMapping("/iniciasesion/registrate")
-    public String vistaLogin(){
-        return "loginregister.jsp";
-    }
-
-    //---------------------------------------------Home--------------------------------------------------
-
-//para ver publicaciones en el home en general
-
-
-
-
-}*/
