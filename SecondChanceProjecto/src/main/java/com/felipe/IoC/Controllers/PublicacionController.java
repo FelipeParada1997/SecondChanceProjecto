@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.felipe.IoC.Models.Animal;
 import com.felipe.IoC.Models.Publicacion;
 import com.felipe.IoC.Models.User;
+import com.felipe.IoC.Services.AnimalesService;
 import com.felipe.IoC.Services.PublicacionService;
+import com.felipe.IoC.Services.TipoAnimalService;
 import com.felipe.IoC.Services.UserService;
 
 @Controller
@@ -23,11 +26,13 @@ public class PublicacionController {
 
     private final PublicacionService publicacionService;
     private final UserService userService;
+    private final AnimalesService animalesService;
 
-    public PublicacionController(PublicacionService publicacionService,UserService userService){
+    public PublicacionController(PublicacionService publicacionService,UserService userService,AnimalesService animalesService){
 
         this.publicacionService = publicacionService;
         this.userService = userService;
+        this.animalesService= animalesService;
     }
     // para mostrar publicacion get
     @GetMapping("/Publicacion")
@@ -38,21 +43,21 @@ public class PublicacionController {
     @PostMapping("/Publicacion")
     public String crearPublicacionn(@Valid @ModelAttribute("publicacion") Publicacion publicacion,BindingResult result, HttpSession session){
         if (result.hasErrors()) {
-            return "publicacionver.jsp";
+            return "publicacionver";
         }
         Long id = (Long) session.getAttribute("userId");
         User user = userService.findById(id);
         publicacion.setUser(user);
-        publicacion.setTitulo(null);
-        publicacion.setDescripcion(null);
-        return "redirect:/home.jsp";
+        publicacionService.save(publicacion);
+        return "redirect:/home";
     }
+
     //para mostrar todas en lista
     //@GetMapping("/verPublicaciones")
     //public String verPublicaciones(@ModelAttribute("publicacion")Publicacion publicacion,Model model){
     //    List<Publicacion> publicacionn = publicacionService.mostrarPublicaciones();
     //    model.addAttribute("publicacion", publicacionn);
-    //    return "home.jsp";
+    //    return "home";
     //}
     //para borrar la publicacion
     @GetMapping("/SecondChance/Publicacion/{id}/delete")
@@ -60,6 +65,8 @@ public class PublicacionController {
         publicacionService.delete(id);
         return "redirect:/SecondChance";
     }
+    //profeeeeeeeeeee ayudaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
 }
 
 

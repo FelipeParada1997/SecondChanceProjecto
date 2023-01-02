@@ -14,6 +14,7 @@ public class AnimalController {
         this.serviceRepository = serviceRepository;
         this.serviceUser = serviceUser;
     }
+    //crear perfil de animal cuando se clikea y se ven todos los datos
 
    // @GetMapping("home")
    // public String mostrarAnimales(){

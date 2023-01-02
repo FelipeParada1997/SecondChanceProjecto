@@ -71,10 +71,10 @@ public class UserController {
 
 //para ver publicaciones en el home en general
     @GetMapping("home")
-    public String home(@ModelAttribute ("user")User user, Model model){
-        List<Publicacion> publicaciones = publicacionService.mostrarPublicacions();
+    public String home(@ModelAttribute ("user")User user, Model model, HttpSession session){
+        Long id = (Long) session.getAttribute("publicacionid");
+        Publicacion publicaciones = publicacionService.findById(id);
         model.addAttribute("publicaciones", publicaciones);
     return"home";
     }
-
 }
