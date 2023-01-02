@@ -80,11 +80,12 @@ public class PublicacionController {
     public String mostrarPublicacion(Model model, HttpSession session){
         Long userId = (Long) session.getAttribute("userId");
         User user = userService.findById(userId);
-        List<Publicacion> animales = publicacionService.findAll();
+        List<Animal> animales = animalService.findAll();
         model.addAttribute("user", user);
-        model.addAttribute("nombresItem", nombres);
+        model.addAttribute("animalesItems", animales);
         return "carpetaNombre/home.jsp";
     }
+
 }
 
 
