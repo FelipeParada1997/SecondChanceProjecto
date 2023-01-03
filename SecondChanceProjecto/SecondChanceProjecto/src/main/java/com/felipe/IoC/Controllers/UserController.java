@@ -34,8 +34,7 @@ public class UserController {
     @PostMapping("/registerpost")
     public String indexregister(@Valid @ModelAttribute("user") User user,
                                 BindingResult result, HttpSession session, Model model) {
-        System.out.println(user.getEmail() + user.getNombre() + user.getApellido() +user.getPasswordConfirm() + user.getFechaNacimiento()
-        + user.getPassword());
+        System.out.println(result.getAllErrors());
         if (result.hasErrors()) {
             return "loginregister.jsp";
         }

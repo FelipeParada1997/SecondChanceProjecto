@@ -39,7 +39,7 @@ public class User extends Base{
 
     @NotNull
     @PastOrPresent
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacimiento;
 
     @Email(message = "error de formato")

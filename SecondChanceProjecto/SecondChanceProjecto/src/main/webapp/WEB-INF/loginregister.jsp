@@ -1,5 +1,5 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isErrorPage="true" %>
@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta path="viewport" content="width=device-width, initial-scale=1.0">
         <!---- bootstrap ----->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
 integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -25,12 +25,12 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                 <h2>Inicia sesión</h2>
 
                 <div class="input-group">
-                    <input  type="email" id="email" name="email" required>
+                    <input  type="email" id="email" path="email" >
                     <label  for="email">Correo electrónico</label>
                 </div>
 
                 <div class="input-group">
-                    <input  type="password" id="password" name="password" required>
+                    <input  type="password" id="password" path="password" >
                     <label  for="password">Contraseña</label>
                 </div>
 
@@ -55,29 +55,29 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                 <form:form method="post" action="/registerpost" modelAttribute="user">
                     <h2>Únete</h2>
                     <div class="input-group">
-                        <input type="text" id="nombre" name="nombre" required>
-                        <label for="nombre">Nombre</label>
+                        <form:input type="text" id="nombre" path="nombre" />
+                        <form:label path="nombre">Nombre</form:label>
                     </div>
                     <div class="input-group">
-                        <input type="text" id="apellido" name="apellido" required>
-                        <label for="apellido">Apellido</label>
+                        <form:input type="text" id="apellido" path="apellido" />
+                        <form:label path="apellido">Apellido</form:label>
                     </div>
 
                     <div class="input-group">
                         <form:input type="date" id="fechaNacimiento" path="fechaNacimiento"/>
-                        <form:label for="fechaNacimiento">Fecha de nacimiento</form:label>
+                        <form:label path="fechaNacimiento">Fecha de nacimiento</form:label>
                     </div>
                     <div class="input-group">
-                        <input type="text" id="email" name="email" required>
-                        <label for="email">Correo electrónico</label>
+                        <form:input type="text" id="email" path="email" />
+                        <form:label path="email">Correo electrónico</form:label>
                     </div>
                     <div class="input-group">
-                        <input type="password" id="password" name="password" required>
-                        <label for="password">Contraseña</label>
+                        <form:input type="password" id="password" path="password" />
+                        <form:label path="password">Contraseña</form:label>
                     </div>
                     <div class="input-group">
-                        <input type="password" id="passwordConfirm" name="passwordConfirm" required>
-                        <label for="passwordConfirm">Confirma contraseña</label>
+                        <form:input type="password" id="passwordConfirm" path="passwordConfirm" />
+                        <form:label path="passwordConfirm">Confirma contraseña</form:label>
                     </div>
 
 
