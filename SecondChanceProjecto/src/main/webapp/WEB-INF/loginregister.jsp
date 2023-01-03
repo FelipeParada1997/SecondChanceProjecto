@@ -64,8 +64,8 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                     </div>
 
                     <div class="input-group">
-                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-                        <label for="fechaNacimiento">Fecha de nacimiento</label>
+                        <form:input type="date" id="fechaNacimiento" path="fechaNacimiento"/>
+                        <form:label for="fechaNacimiento">Fecha de nacimiento</form:label>
                     </div>
                     <div class="input-group">
                         <input type="text" id="email" name="email" required>
