@@ -1,10 +1,13 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="css/Home.css">
     <script src="https://kit.fontawesome.com/8c2ce3db19.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Second Chance</title>
@@ -20,7 +23,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="imagenes/GettyImages-977898246-1942d4364fa64bd2ba792a86f4f24715.jpg" alt="First slide">
+                        <img class="d-block w-100" src="https://i.blogs.es/808765/dpoty-puppy-2nd--c--tracy-kirby-the-kennel-club-2/1366_2000.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="imagenes/e0b61-akita-americano-todo-lo-que-necesitas-saber-1-.jpg" alt="Second slide">
@@ -38,6 +41,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+            </div>
     </header>
 
 
@@ -60,7 +64,7 @@
             <div class="contenedor publicaciones">
                 <div class="contieneForeach">
 
-                    <%--<c:forEach items='${}' var='' > --%>
+                    <c:forEach items='${animalesItems}' var='animal' > 
                         <div class="publicacion">
                             <div class="foto">
                                 <img class="foto" src="https://www.publimetro.cl/resizer/5kck4-Julb9l4t70SgTp_aE2Yyk=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/QR6PIGQRZJGIREAHFESUPMKA64.jpg" alt="perrito">
@@ -68,53 +72,18 @@
                             <div>
                                 <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
                             </div>
+
                             <div class="descripcion">
-                                    <h6>Nombre</h6>
-                                    <h6>Genero</h6>
-                                    <h6>Nivel energia</h6>
+                                    <h6><c:out value='${animal.getNombre_mascota()}'/></h6>
+                                    <h6><c:out value='${animal.getGenero()}'/></h6>
+                                    <h6><c:out value='${animal.getTamano_mascota()}'/></h6>
+                                    <h6><c:out value='${animal.getEdad()}'/></h6>
                             </div>
+                            
+                            
                         </div>
-                        <div class="publicacion">
-                            <div class="foto">
-                                <img class="foto" src="imagenes/image.jpg" alt="dog2">
-                            </div>
-                            <div>
-                                <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
-                            </div>
-                            <div class="descripcion">
-                                    <h6>Nombre</h6>
-                                    <h6>Genero</h6>
-                                    <h6>Nivel energia</h6>
-                            </div>
-                        </div>
-                        <div class="publicacion">
-                            <div class="foto">
-                                <img class="foto" src="imagenes/image.jpg" alt="dog2">
-                            </div>
-                            <div>
-                                <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
-                            </div>
-                            <div class="descripcion">
-                                    <h6>Nombre</h6>
-                                    <h6>Genero</h6>
-                                    <h6>Nivel energia</h6>
-                            </div>
-                        </div>
-                        <div class="publicacion">
-                            <div class="foto">
-                                <img class="foto" src="imagenes/image.jpg" alt="dog2">
-                            </div>
-                            <div>
-                                <button class="cuadrado"><i class="fa-solid fa-beat"><img src="imagenes/Imagen1.png" alt=""></i></button>
-                            </div>
-                            <div class="descripcion">
-                                    <h6>Nombre</h6>
-                                    <h6>Genero</h6>
-                                    <h6>Nivel energia</h6>
-                            </div>
-                        </div>
-                </div>
-                    <!-- </c:forEach> -->
+                        
+                    </c:forEach> 
                 </div>
             </div>
 

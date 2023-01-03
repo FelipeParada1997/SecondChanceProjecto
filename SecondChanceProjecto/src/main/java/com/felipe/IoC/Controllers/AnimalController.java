@@ -16,9 +16,4 @@ public class AnimalController {
     }
     //crear perfil de animal cuando se clikea y se ven todos los datos
 
-    @GetMapping("home")
-    public String mostrarAnimales(){
-        return "";
-    }
-
 }

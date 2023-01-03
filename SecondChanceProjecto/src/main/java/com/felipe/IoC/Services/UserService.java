@@ -32,6 +32,15 @@ public class UserService extends BaseService<User>{
         return userRepository.findByEmail(email);
     }
 
+    public boolean duplicatedUser(String email){
+        User u = userRepository.findByEmail(email);
+        if (u == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     //----------------------------------- Registro y Login------------------------------------------
 
     public User createUser(User u) {
