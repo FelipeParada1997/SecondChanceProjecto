@@ -1,52 +1,64 @@
 package com.felipe.IoC.Models;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import java.util.Date;
-
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
 public class User extends Base{
 
-    @NotNull
-    @Size(min = 2, max = 40 )
+    @NotBlank
+    @Size(min = 2)
     private String nombre;
 
-    @NotNull
-    @Size(min = 1, max = 6)
+
+    @NotBlank
+    @Size(min = 4)
     private String apellido;
 
-    @PastOrPresent
-    private Integer fecha_nacimiento;
-
-
     @NotNull
-    @Size(min = 2,max = 150)
+    @PastOrPresent
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private Date fechaNacimiento;
+
     @Email(message = "error de formato")
     private String email;
 
-    @NotNull
-    @Size(min = 8, max = 100)
+    @NotBlank
+    @Size(min = 7)
     private String password;
 
     @Transient
     private String passwordConfirm;
 
-    public User() {
-    }
+    @OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    private Contacto contacto;
 
-    public User(String nombre, String apellido, Integer fecha_nacimiento, String email, String password, String passwordConfirm) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.email = email;
-        this.password = password;
-        this.passwordConfirm = passwordConfirm;
-    }
+
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Publicacion> publicaciones;
+    
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Formulario> formularios;
 }
